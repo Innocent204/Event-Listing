@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate, useNavigate, useParams } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { AuthProvider, useAuth } from './context/AuthContext';
 import { ThemeProvider } from './context/ThemeContext';
@@ -83,7 +83,8 @@ const AppRouter: React.FC = () => {
       <Route path="/" element={
         <EventListPage 
           onEventSelect={handleEventSelect}
-          onSignInClick={() => navigate('/signup')}
+          onSignInClick={() => navigate('/signin')}
+          onSignUpClick={() => navigate('/signup')}
         />
       } />
       

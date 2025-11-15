@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { useAuth } from '../../context/AuthContext';
 import { EventController } from '../../controllers/EventController';
 import { Event } from '../../types/event';
-import React from 'react';
 import { Logo } from '../../components/Logo';
 import { EventCard } from '../../components/EventCard';
 import { ThemeToggle } from '../../components/ThemeToggle';
@@ -96,10 +95,6 @@ export function OrganizerDashboard({ onEventSelect, onCreateEventClick, onSignOu
     }
   };
 
-  const handleManageAttendees = (eventId: string) => {
-    alert('Attendee management for event ' + eventId);
-  };
-
   const getInitials = (name: string) => {
     return name.split(' ').map(n => n[0]).join('').toUpperCase();
   };
@@ -151,9 +146,6 @@ export function OrganizerDashboard({ onEventSelect, onCreateEventClick, onSignOu
     new Date(event.startDateTime) > new Date()
   );
 
-  const pastEvents = (myEvents || []).filter(event => 
-    new Date(event.startDateTime) <= new Date()
-  );
 
   // Show settings page if requested
   if (showSettings) {

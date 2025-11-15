@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
-import React from 'react';
 import { EventController } from '../../controllers/EventController';
 import { Event, AttendedEvent } from '../../types/event';
 import { Logo } from '../../components/Logo';
@@ -23,12 +22,9 @@ import {
   LogOut, 
   Heart, 
   Clock,
-  BarChart3,
   Users,
   Star,
   MessageSquare,
-  Filter,
-  Bookmark,
   UserPlus,
   CheckCircle
 } from 'lucide-react';
@@ -39,7 +35,7 @@ export function UserDashboard({ onEventSelect, onSignOut }: { onEventSelect?: (e
   const [favoriteEvents, setFavoriteEvents] = useState<Event[]>([]);
   const [browseEvents, setBrowseEvents] = useState<Event[]>([]);
   const [nearbyEvents, setNearbyEvents] = useState<Event[]>([]);
-  const [attendedEvents, setAttendedEvents] = useState<AttendedEvent[]>([]);
+   const [attendedEvents, setAttendedEvents] = useState<AttendedEvent[]>([]);
   const [followingOrganizers, setFollowingOrganizers] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState('');

@@ -15,11 +15,13 @@ Route::get('/user', [AuthController::class, 'user'])->middleware('auth:sanctum')
 Route::put('/profile', [AuthController::class, 'updateProfile'])->middleware('auth:sanctum');
 Route::post('/refresh', [AuthController::class, 'refresh'])->middleware('auth:sanctum');
 
-// Event routes (protected) 
+// Public event routes
+Route::get('/events', [EventController::class, 'index']);
+Route::get('/events/{event}', [EventController::class, 'show']);
+
+// Protected event routes
 Route::middleware('auth:sanctum')->group(function () {
-    Route::get('/events', [EventController::class, 'index']);
     Route::post('/events', [EventController::class, 'store']);
-    Route::get('/events/{event}', [EventController::class, 'show']);
     Route::put('/events/{event}', [EventController::class, 'update']);
     Route::delete('/events/{event}', [EventController::class, 'destroy']);
     Route::get('/events/calendar/{year}/{month}', [EventController::class, 'calendar']);

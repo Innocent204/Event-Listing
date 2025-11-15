@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import React from 'react';
 import { useAuth } from '../../context/AuthContext';
 import { AdminController } from '../../controllers/AdminController';
 import { Event } from '../../types/event';
@@ -36,8 +35,6 @@ import {
   Plus
 } from 'lucide-react';
 import { toast } from 'sonner';
-import { EventApprovalDialog } from '../../components/EventApprovalDialog';
-
 interface AdminDashboardProps {
   onEventSelect: (event: Event) => void;
   onSignOut: () => void;
@@ -53,7 +50,7 @@ export function AdminDashboard({ onEventSelect, onSignOut }: AdminDashboardProps
   const [loading, setLoading] = useState(true);
   const [approvalLoading, setApprovalLoading] = useState<string | null>(null);
   const [showSettings, setShowSettings] = useState(false);
-  const [selectedEventForApproval, setSelectedEventForApproval] = useState<Event | null>(null);
+  const [, setSelectedEventForApproval] = useState<Event | null>(null);
 
   const adminController = new AdminController();
 
@@ -132,14 +129,6 @@ export function AdminDashboard({ onEventSelect, onSignOut }: AdminDashboardProps
     } finally {
       setApprovalLoading(null);
     }
-  };
-
-  const handleApprovalDialogApprove = (eventId: string, notes?: string) => {
-    handleEventApproval(eventId, true, notes);
-  };
-
-  const handleApprovalDialogReject = (eventId: string, notes?: string) => {
-    handleEventApproval(eventId, false, notes);
   };
 
   const handleUserAction = (userId: string, action: 'activate' | 'suspend' | 'delete' | 'promote') => {

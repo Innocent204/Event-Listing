@@ -15,8 +15,8 @@ export interface Venue {
 export interface VenueCreateData {
   name: string;
   address: string;
-  latitude: number;
-  longitude: number;
+  latitude?: number;
+  longitude?: number;
   capacity?: number;
 }
 

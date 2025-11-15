@@ -3,6 +3,9 @@ import { Event } from '../types/event';
 
 // Controller layer - handles business logic and coordinates between services and views
 export class EventController {
+  createEvent(eventData: { image_url?: string | undefined; ticketing_link?: string | undefined; website?: string | undefined; ticket_price?: number | undefined; name: string; description: string; start_date_time: string; end_date_time: string; venue_id: string; category_ids: string[]; is_free: boolean; }) {
+    throw new Error('Method not implemented.');
+  }
   private eventService: EventService;
 
   constructor() {
