@@ -1,6 +1,5 @@
-import { ArrowLeft, Moon, Sun, User, Bell, Shield, Globe, Settings2, Database, Users, BarChart3 } from 'lucide-react';
+import { ArrowLeft, Moon, Sun, User, Bell, Shield, Settings2, Database, Users, BarChart3 } from 'lucide-react';
 import { Button } from '../../components/ui/button';
-import React from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../../components/ui/card';
 import { Switch } from '../../components/ui/switch';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../../components/ui/select';

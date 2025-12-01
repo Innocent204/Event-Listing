@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Event } from '../../types/event';
 import { EventController } from '../../controllers/EventController';
@@ -12,7 +11,7 @@ import { AlertCircle } from 'lucide-react';
 export function EventDetailPage() {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
-  const { user, isAuthenticated } = useAuth();
+  const { user } = useAuth();
   const [event, setEvent] = useState<Event | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
